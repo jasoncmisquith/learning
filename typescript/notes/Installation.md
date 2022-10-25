@@ -5,3 +5,5 @@ sudo apt install nodejs
 node -v
 sudo npm install -g typescript
 tsc --version
+
+tsc --init
