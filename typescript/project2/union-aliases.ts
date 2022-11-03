@@ -1,9 +1,14 @@
-function combine(input1, input2, resultConversion) {
-    var result;
+type Combinable = number | string;
+type ConversionDescriptior = 'as-number' | 'as-text';
+
+function combine(
+    input1: Combinable,
+    input2: Combinable,
+    resultConversion: ConversionDescriptior) {
+    let result;
     if (typeof input1 === 'number' && typeof input2 === 'number' || resultConversion === 'as-number') {
         result = +input1 + +input2;
-    }
-    else {
+    } else {
         result = input1.toString() + input2.toString();
     }
     return result;
@@ -13,7 +18,10 @@ function combine(input1, input2, resultConversion) {
     //     return result.toString();
     // }
 }
-var combinedAges = combine(30, 26, 'as-number');
+
+
+const combinedAges = combine(30, 26, 'as-number');
 console.log(combinedAges);
-var combinedNames = combine('10', '11', 'as-string');
+
+const combinedNames = combine('10', '11', 'as-string')
 console.log(combinedNames);
