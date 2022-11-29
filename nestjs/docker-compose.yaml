@@ -1,0 +1,10 @@
+version: "3.9"
+services:
+  nestweb:
+    build: .
+    image: learnnest:latest
+    container_name: learnnest
+    volumes:
+      - /home/jason/workspace/learning/nestjs/learnnest:/home/nest/learnnest
+    stdin_open: true
+    tty: true
