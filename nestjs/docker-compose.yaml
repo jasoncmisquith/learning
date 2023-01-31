@@ -6,5 +6,23 @@ services:
     container_name: learnnest
     volumes:
       - /home/jason/workspace/learning/nestjs/learnnest:/home/nest/learnnest
+    ports:
+      - 3333:3333
     stdin_open: true
     tty: true
+    networks:
+    - freecodecamp
+
+  dev-db:
+    image: postgres:14
+    ports:
+    - 5434:5432
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 123
+      POSTGRES_DB: nest
+    networks:
+    - freecodecamp
+
+networks:
+  freecodecamp:
