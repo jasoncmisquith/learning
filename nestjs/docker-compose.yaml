@@ -6,8 +6,11 @@ services:
     container_name: learnnest
     volumes:
       - /home/jason/workspace/learning/nestjs/learnnest:/home/nest/learnnest
+      - /home/nest/learnnest/node_modules
+      - /home/nest/learnnest/prisma/migrations
     ports:
       - 3333:3333
+      - 5555:5555
     stdin_open: true
     tty: true
     networks:

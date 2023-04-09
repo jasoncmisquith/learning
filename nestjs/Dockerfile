@@ -1,17 +1,24 @@
-FROM node:19-alpine3.15
+FROM node:19-alpine3.15 as DEV
 
-RUN addgroup -S nestgroup --gid 1024 && adduser --uid 1001 -D nestuser -h /home/nest -G nestgroup
 
-COPY --chown=nestuser:nestgroup learnnest/package.json /home/nest/learnnest/
 
-USER nestuser
+COPY learnnest/package.json /home/nest/learnnest/
 
 WORKDIR /home/nest/learnnest
-RUN yarn
+RUN yarn install
 
-COPY --chown=nestuser:nestgroup learnnest /home/nest/learnnest
+COPY learnnest /home/nest/learnnest
 
 RUN ls /home/nest/learnnest
+
+RUN yarn prisma generate
+
+# FROM DEV
+
+# RUN addgroup -S nestgroup --gid 1024 && adduser --uid 1001 -D nestuser -h /home/nest -G nestgroup
+
+
+
 # Initial setup command: added below only for reference
 # nest new learnnest --package-manager npm --skip-git
 
