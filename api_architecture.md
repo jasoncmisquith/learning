@@ -1,3 +1,4 @@
+```mermaid
 graph LR
 
 subgraph "AWS Services"
@@ -21,3 +22,4 @@ end
 
 Postgres --> Service1
 Elasticache --> Service1
+```
